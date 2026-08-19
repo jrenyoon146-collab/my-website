@@ -1,0 +1,167 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+    padding:20px;
+    color:#1e293b;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    display:grid;
+    grid-template-columns:300px 1fr;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+}
+
+.left{
+    background:#1e293b;
+    color:white;
+    padding:30px;
+}
+
+.left h2{
+    margin:20px 0 10px;
+    border-bottom:2px solid #fff;
+    padding-bottom:5px;
+}
+
+.left p,
+.left li{
+    font-size:14px;
+    line-height:1.6;
+}
+
+.right{
+    padding:30px;
+}
+
+h1{
+    font-size:36px;
+    color:#1e293b;
+    font-weight:bold;
+}
+
+.title,
+.subtitle{
+    font-size:18px;
+    color:#64748b;
+    margin-bottom:20px;
+}
+
+.section{
+    margin-top:25px;
+}
+
+.section h2{
+    color:#1e293b;
+    margin-bottom:10px;
+    border-bottom:2px solid #1e293b;
+    padding-bottom:5px;
+}
+
+.section h3{
+    color:#334155;
+    margin-bottom:5px;
+}
+
+p{
+    line-height:1.6;
+    margin-bottom:8px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+.btn{
+    display:inline-block;
+    padding:10px 20px;
+    background:#334155;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:5px;
+    margin-top:15px;
+}
+
+.btn:hover,
+button:hover{
+    opacity:0.9;
+}
+
+.tool-page{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    box-shadow:0 0 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    text-align:left;
+}
+
+.tool-card{
+    padding:20px;
+    border:1px solid #cbd5e1;
+    border-radius:8px;
+}
+
+.tool-card h2{
+    color:#1e293b;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-bottom:10px;
+    border:1px solid #94a3b8;
+    border-radius:5px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:5px;
+    background:#334155;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.result{
+    margin-top:12px;
+    min-height:24px;
+    color:#334155;
+    font-weight:bold;
+}
+
+.back-btn{
+    margin-top:30px;
+}
+
+@media(max-width:700px){
+    .container{
+        grid-template-columns:1fr;
+    }
+
+    .tool-grid{
+        grid-template-columns:1fr;
+    }
+
+    h1{
+        font-size:30px;
+    }
+}

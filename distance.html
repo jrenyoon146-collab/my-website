@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Tools</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="tool-page">
+    <h1>JavaScript Assignments</h1>
+    <p class="subtitle">Choose a calculator and enter valid values.</p>
+
+    <div class="tool-grid">
+        <div class="tool-card">
+            <h2>Temperature Converter</h2>
+            <input type="number" id="celsius" placeholder="Enter Celsius">
+            <button onclick="convertTemperature()">Convert</button>
+            <p id="tempResult" class="result"></p>
+        </div>
+
+        <div class="tool-card">
+            <h2>Grade Calculator</h2>
+            <input type="number" id="score" placeholder="Enter Score (0-100)">
+            <button onclick="calculateGrade()">Calculate</button>
+            <p id="gradeResult" class="result"></p>
+        </div>
+
+        <div class="tool-card">
+            <h2>Change Calculator</h2>
+            <input type="number" id="amount" placeholder="Enter Amount">
+            <button onclick="calculateChange()">Calculate</button>
+            <p id="changeResult" class="result"></p>
+        </div>
+
+        <div class="tool-card">
+            <h2>Distance Calculator</h2>
+            <input type="number" id="x" placeholder="Enter X">
+            <input type="number" id="y" placeholder="Enter Y">
+            <button onclick="calculateDistance()">Calculate</button>
+            <p id="distanceResult" class="result"></p>
+        </div>
+    </div>
+
+    <a href="index.html" class="btn back-btn">Back to Resume</a>
+</div>
+
+<script>
+function convertTemperature(){
+    const value = document.getElementById("celsius").value;
+    const result = document.getElementById("tempResult");
+
+    if(value === ""){
+        result.innerHTML = "Please enter a Celsius value.";
+        return;
+    }
+
+    const c = Number(value);
+    const f = (c * 9 / 5) + 32;
+    result.innerHTML = c + " °C = " + f.toFixed(2) + " °F";
+}
+
+function calculateGrade(){
+    const value = document.getElementById("score").value;
+    const result = document.getElementById("gradeResult");
+
+    if(value === ""){
+        result.innerHTML = "Please enter your score.";
+        return;
+    }
+
+    const score = Number(value);
+
+    if(score < 0 || score > 100){
+        result.innerHTML = "Score must be between 0 and 100.";
+        return;
+    }
+
+    let grade;
+    if(score >= 80) grade = "You got an A";
+    else if(score >= 70) grade = "You got a B";
+    else if(score >= 60) grade = "You got a C";
+    else if(score >= 50) grade = "You got a D";
+    else grade = "You got an F";
+
+    result.innerHTML = grade;
+}
+
+function calculateChange(){
+    const value = document.getElementById("amount").value;
+    const result = document.getElementById("changeResult");
+
+    if(value === "" || Number(value) <= 0){
+        result.innerHTML = "Please enter a valid amount greater than 0.";
+        return;
+    }
+
+    let amount = Math.floor(Number(value));
+    const money = [1000, 500, 100, 50, 20, 10, 5, 2, 1];
+    let output = "";
+
+    for(let i = 0; i < money.length; i++){
+        const count = Math.floor(amount / money[i]);
+        if(count > 0){
+            output += count + " x " + money[i] + "<br>";
+            amount %= money[i];
+        }
+    }
+
+    result.innerHTML = output;
+}
+
+function calculateDistance(){
+    const xValue = document.getElementById("x").value;
+    const yValue = document.getElementById("y").value;
+    const result = document.getElementById("distanceResult");
+
+    if(xValue === "" || yValue === ""){
+        result.innerHTML = "Please enter both X and Y values.";
+        return;
+    }
+
+    const x = Number(xValue);
+    const y = Number(yValue);
+    const distance = Math.sqrt(x * x + y * y);
+
+    result.innerHTML = "Distance = " + distance.toFixed(2);
+}
+</script>
+
+</body>
+</html>
